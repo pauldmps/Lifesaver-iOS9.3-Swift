@@ -139,10 +139,10 @@
                                     <action selector="onBloodTypeClicked:" destination="ADQ-HK-LE1" eventType="touchUpInside" id="9cD-QJ-6ty"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="By clicking above you agree to our terms and conditions." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dp-Za-ZEv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking above you agree to our terms and conditions." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dp-Za-ZEv">
                                 <rect key="frame" x="20" y="366" width="560" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50s-Ic-ReO">
@@ -159,6 +159,10 @@
                                     <action selector="onRegisterButtonClicked:" destination="ADQ-HK-LE1" eventType="touchUpInside" id="ay3-4z-MiU"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uan-qe-8ga" customClass="UIBloodTypePicker" customModule="Lifesaver" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="360" width="600" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -167,11 +171,14 @@
                             <constraint firstItem="50s-Ic-ReO" firstAttribute="trailing" secondItem="yYT-R8-Mmi" secondAttribute="trailing" id="JYl-70-rIb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Ppg-6Y-bYf" secondAttribute="leading" id="KwT-Sa-zIx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ppg-6Y-bYf" secondAttribute="trailing" id="M38-Ue-KZk"/>
+                            <constraint firstItem="Uan-qe-8ga" firstAttribute="leading" secondItem="RYF-ZG-u8K" secondAttribute="leadingMargin" constant="-20" id="R4g-Ws-Gib"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2dp-Za-ZEv" secondAttribute="trailing" id="SA5-xg-1IZ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="tsp-2s-KQL" secondAttribute="leading" id="VU3-XX-Moj"/>
+                            <constraint firstItem="04B-n7-b31" firstAttribute="top" secondItem="Uan-qe-8ga" secondAttribute="bottom" id="WIa-4A-sDT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="04p-Af-geY" secondAttribute="trailing" id="WRs-C7-NWx"/>
                             <constraint firstAttribute="leadingMargin" secondItem="50s-Ic-ReO" secondAttribute="leading" id="Ybz-tZ-uQy"/>
                             <constraint firstItem="tsp-2s-KQL" firstAttribute="top" secondItem="04p-Af-geY" secondAttribute="bottom" constant="18" id="eSX-bb-F5i"/>
+                            <constraint firstItem="2dp-Za-ZEv" firstAttribute="top" secondItem="50s-Ic-ReO" secondAttribute="bottom" constant="19" id="eeZ-fp-8WU"/>
                             <constraint firstItem="yYT-R8-Mmi" firstAttribute="top" secondItem="tsp-2s-KQL" secondAttribute="bottom" constant="18" id="gbM-vT-Ru3"/>
                             <constraint firstItem="50s-Ic-ReO" firstAttribute="trailing" secondItem="2dp-Za-ZEv" secondAttribute="trailing" id="ipI-LH-1ni"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yYT-R8-Mmi" secondAttribute="trailing" id="kBe-95-A8L"/>
@@ -179,17 +186,21 @@
                             <constraint firstAttribute="trailingMargin" secondItem="tsp-2s-KQL" secondAttribute="trailing" id="lJf-Sj-Ckh"/>
                             <constraint firstAttribute="leadingMargin" secondItem="2dp-Za-ZEv" secondAttribute="leading" id="mGH-pI-gUZ"/>
                             <constraint firstItem="xRb-1Y-iXh" firstAttribute="top" secondItem="Ppg-6Y-bYf" secondAttribute="bottom" constant="18" id="oWT-EK-UmX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uan-qe-8ga" secondAttribute="trailing" constant="-20" id="qF9-js-Jfx"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yYT-R8-Mmi" secondAttribute="leading" id="rNZ-zn-h8S"/>
                             <constraint firstItem="50s-Ic-ReO" firstAttribute="top" secondItem="yYT-R8-Mmi" secondAttribute="bottom" constant="58" id="rgr-ga-PLW"/>
                             <constraint firstItem="50s-Ic-ReO" firstAttribute="leading" secondItem="2dp-Za-ZEv" secondAttribute="leading" id="tDc-qw-BMw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="50s-Ic-ReO" secondAttribute="trailing" id="tpc-Gm-j4O"/>
                             <constraint firstAttribute="leadingMargin" secondItem="04p-Af-geY" secondAttribute="leading" id="ucB-EA-CEc"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xRb-1Y-iXh" secondAttribute="leading" id="wir-uC-iGB"/>
+                            <constraint firstItem="Uan-qe-8ga" firstAttribute="top" secondItem="2dp-Za-ZEv" secondAttribute="bottom" constant="-21" id="wqo-O7-Coy"/>
                             <constraint firstItem="Ppg-6Y-bYf" firstAttribute="top" secondItem="Dbg-Z3-Ddg" secondAttribute="bottom" constant="52" id="zVH-wW-zI1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="jQY-hQ-JTb"/>
                     <connections>
+                        <outlet property="bloodTypePicker" destination="Uan-qe-8ga" id="N83-Oj-3Gb"/>
+                        <outlet property="bloodTypePickerView" destination="Uan-qe-8ga" id="gL0-Yk-WBr"/>
                         <outlet property="confirmPassword" destination="tsp-2s-KQL" id="gWS-Cc-KK3"/>
                         <outlet property="email" destination="xRb-1Y-iXh" id="HeB-Ct-KPa"/>
                         <outlet property="name" destination="Ppg-6Y-bYf" id="uYG-BG-nJc"/>
