@@ -12,11 +12,11 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+        <view contentMode="scaleAspectFit" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="260"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-Ws-9hF">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-Ws-9hF">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <items>
                         <barButtonItem systemItem="flexibleSpace" id="83D-Vy-ptE"/>
@@ -27,14 +27,26 @@
                         </barButtonItem>
                     </items>
                 </toolbar>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vT-yu-hxQ">
+                <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="8vT-yu-hxQ">
                     <rect key="frame" x="0.0" y="44" width="600" height="216"/>
                 </pickerView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8vT-yu-hxQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="10b-eB-xVu"/>
+                <constraint firstAttribute="bottom" secondItem="2bG-Ws-9hF" secondAttribute="bottom" constant="216" id="1uR-Me-mGO"/>
+                <constraint firstItem="8vT-yu-hxQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="2xc-rG-5vL"/>
+                <constraint firstItem="8vT-yu-hxQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CFX-E0-Zmy"/>
+                <constraint firstItem="2bG-Ws-9hF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LhF-Vw-29N"/>
+                <constraint firstItem="2bG-Ws-9hF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VFh-Vc-feQ"/>
+                <constraint firstAttribute="trailing" secondItem="8vT-yu-hxQ" secondAttribute="trailing" id="XoB-Dg-bX7"/>
+                <constraint firstItem="2bG-Ws-9hF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ju0-m4-dBq"/>
+                <constraint firstAttribute="bottom" secondItem="8vT-yu-hxQ" secondAttribute="bottom" id="oDG-gl-Lfh"/>
+                <constraint firstAttribute="trailing" secondItem="2bG-Ws-9hF" secondAttribute="trailing" id="prd-wf-CjD"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="215" y="527"/>
+            <point key="canvasLocation" x="215" y="357"/>
         </view>
     </objects>
 </document>

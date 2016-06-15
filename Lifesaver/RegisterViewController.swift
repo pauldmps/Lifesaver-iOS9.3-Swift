@@ -29,7 +29,7 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
         bloodTypePickerView.bloodTypePicker.dataSource = self
         bloodTypePickerView.bloodTypePicker.delegate = self
         bloodTypePickerView.doneButton.target = self
-        bloodTypePickerView.doneButton.action = #selector(RegisterViewController.onDoneClicked(_:))
+        bloodTypePickerView.doneButton.action = #selector(self.onDoneClicked(_:))
         
         bloodTypePickerView.hidden = true
         
