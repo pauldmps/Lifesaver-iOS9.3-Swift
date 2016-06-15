@@ -21,6 +21,9 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     
     @IBOutlet weak var bloodTypePickerView: UIBloodTypePicker!
     
+    @IBOutlet weak var bloodTypeChoiceButton: UIButton!
+    
+    var bloodType: String!
     
     override func viewDidAppear(animated: Bool) {
         
@@ -29,7 +32,7 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
         bloodTypePickerView.bloodTypePicker.dataSource = self
         bloodTypePickerView.bloodTypePicker.delegate = self
         bloodTypePickerView.doneButton.target = self
-        bloodTypePickerView.doneButton.action = #selector(self.onDoneClicked(_:))
+        bloodTypePickerView.doneButton.action = #selector(RegisterViewController.onDoneClicked)
         
         bloodTypePickerView.hidden = true
         
@@ -38,8 +41,10 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     
     func onDoneClicked(){
         //TODO
+        NSLog(bloodType)
+        
         bloodTypePickerView.hidden = true
-
+        bloodTypeChoiceButton.setTitle(bloodType, forState: UIControlState.Normal)
     }
     
     
@@ -61,13 +66,6 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     
     }
     
-
-    
-    @IBAction func onDoneClicked(sender: UIBarButtonItem) {
-
-    }
-    
-    
     
     let pickerData = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
     
@@ -86,7 +84,7 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //TODO
+        bloodType = pickerData[row]
     }
 
     

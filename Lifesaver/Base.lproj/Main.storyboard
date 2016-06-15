@@ -194,6 +194,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="jQY-hQ-JTb"/>
                     <connections>
+                        <outlet property="bloodTypeChoiceButton" destination="yYT-R8-Mmi" id="GTV-dS-kyc"/>
                         <outlet property="bloodTypePickerView" destination="Uan-qe-8ga" id="gL0-Yk-WBr"/>
                         <outlet property="confirmPassword" destination="tsp-2s-KQL" id="gWS-Cc-KK3"/>
                         <outlet property="email" destination="xRb-1Y-iXh" id="HeB-Ct-KPa"/>
