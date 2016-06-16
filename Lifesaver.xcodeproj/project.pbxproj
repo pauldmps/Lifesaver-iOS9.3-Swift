@@ -107,11 +107,11 @@
 			children = (
 				7C8D87801D0C06C2009ED488 /* Supporting files */,
 				7C8D87541D0C06B8009ED488 /* MainViewController.swift */,
-				7C8D87561D0C06B8009ED488 /* Main.storyboard */,
 				7C861D721D0C4C5C0059F32B /* LoginViewController.swift */,
 				7C1133EC1D0DEBBD000F4D7F /* RegisterViewController.swift */,
 				7C531A701D10850800FCC8BA /* UIBloodTypePicker.xib */,
 				7C4E362A1D110B8200DE6541 /* UIBloodTypePicker.swift */,
+				7C8D87561D0C06B8009ED488 /* Main.storyboard */,
 			);
 			path = Lifesaver;
 			sourceTree = "<group>";

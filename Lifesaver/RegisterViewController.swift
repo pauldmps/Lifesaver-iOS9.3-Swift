@@ -23,11 +23,15 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     
     @IBOutlet weak var bloodTypeChoiceButton: UIButton!
     
-    var bloodType: String!
+    let pickerData = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
+    
+    var bloodType: String = "A+"
     
     override func viewDidAppear(animated: Bool) {
         
-        //bloodTypePicker.addSubview(UIBloodTypePicker())
+        let tapRecognizer = UITapGestureRecognizer(target: self, action:#selector(RegisterViewController.handleSingleTap))
+        tapRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapRecognizer)
         
         bloodTypePickerView.bloodTypePicker.dataSource = self
         bloodTypePickerView.bloodTypePicker.delegate = self
@@ -40,36 +44,25 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func onDoneClicked(){
-        //TODO
-        NSLog(bloodType)
-        
         bloodTypePickerView.hidden = true
         bloodTypeChoiceButton.setTitle(bloodType, forState: UIControlState.Normal)
     }
     
     
+    func handleSingleTap(){
+        self.view.endEditing(true)
+        bloodTypePickerView.hidden = true
+    }
+    
     
     @IBAction func onBloodTypeClicked(sender: UIButton) {
+        self.view.endEditing(false)
         bloodTypePickerView.hidden = false
         }
-        
-    
-    
-    /*func showPicker(willShow:Bool){
-        let transform = willShow ? CGAffineTransformMakeTranslation(0, -CGRectGetHeight(self.customPicker.frame)):CGAffineTransformIdentity
-        
-        UIView.animateWithDuration(0.3, animations: {self.customPicker.transform = transform})
-    } */
-    
     
     @IBAction func onRegisterClicked(sender: AnyObject) {
     
     }
-    
-    
-    let pickerData = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
-    
-    
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -85,6 +78,7 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         bloodType = pickerData[row]
+        //bloodType = NSAttributedString(string: <#T##String#>, attributes: <#T##[String : AnyObject]?#>)
     }
 
     
