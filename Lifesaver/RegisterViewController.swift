@@ -25,13 +25,17 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     
     let pickerData = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
     
-    var bloodType: String = "A+"
+    var bloodType: String!
+    var bloodTypeButtonLabel: NSMutableAttributedString!
     
     override func viewDidAppear(animated: Bool) {
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action:#selector(RegisterViewController.handleSingleTap))
         tapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapRecognizer)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+        
         
         bloodTypePickerView.bloodTypePicker.dataSource = self
         bloodTypePickerView.bloodTypePicker.delegate = self
@@ -45,7 +49,10 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     
     func onDoneClicked(){
         bloodTypePickerView.hidden = true
-        bloodTypeChoiceButton.setTitle(bloodType, forState: UIControlState.Normal)
+        bloodTypeButtonLabel = NSMutableAttributedString(string: bloodType == nil ? "A+":bloodType)
+        bloodTypeButtonLabel.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor(), range: NSMakeRange(0, bloodTypeButtonLabel.length))
+        bloodTypeButtonLabel.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(14.0), range: NSMakeRange(0, bloodTypeButtonLabel.length))
+        bloodTypeChoiceButton.setAttributedTitle(bloodTypeButtonLabel, forState: UIControlState.Normal)
     }
     
     
@@ -60,7 +67,7 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
         bloodTypePickerView.hidden = false
         }
     
-    @IBAction func onRegisterClicked(sender: AnyObject) {
+    @IBAction func onRegisterClicked(sender: UIButton) {
     
     }
     
@@ -81,7 +88,9 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
         //bloodType = NSAttributedString(string: <#T##String#>, attributes: <#T##[String : AnyObject]?#>)
     }
 
-    
+    func keyboardWillShow(){
+        bloodTypePickerView.hidden = true
+    }
     
     
     
