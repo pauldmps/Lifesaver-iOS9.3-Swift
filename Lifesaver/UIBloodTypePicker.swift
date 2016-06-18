@@ -14,17 +14,12 @@ import UIKit
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         load()
-        
-        
-
-        
-            }
+    }
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         load()
-        
     }
     
     func load(){

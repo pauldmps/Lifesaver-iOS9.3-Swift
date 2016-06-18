@@ -61,7 +61,7 @@ class LoginViewController: UIViewController{
         self.presentViewController(alertController, animated: true, completion: nil)
         
         /*let alertview = UIAlertView()
-        alertview.title = "Sign in Failed!"
+        alertview`.title = "Sign in Failed!"
         alertview.message = message as String
         alertview.delegate = self
         alertview.addButtonWithTitle("OK")
@@ -71,17 +71,30 @@ class LoginViewController: UIViewController{
     
     func performLoginWithEmail(email: NSString, password: NSString){
         //let post = "email=\(email)&password=\(password)"
-        let url = NSURL(string: "https://lifesaver-paulshantanu.rhcloud.com/signin")!
+        //let url = NSURL(string: "https://lifesaver-paulshantanu.rhcloud.com/signin")!
         //let postData = post.dataUsingEncoding(NSASCIIStringEncoding)!
         //let postLength = String(postData.length)
         //let request = NSMutableURLRequest(URL:url)
         
-        APIConnectionController(url: "https://lifesaver-paulshantanu.rhcloud.com/signin", requestMethod: "POST", delegate: OnCompleteListener(){
+        let postData = NSMutableDictionary()
+        
+        postData.setValue(email, forKey: "email")
+        postData.setValue(password, forKey: "password")
+        
+        
+        APIConnectionController(url: "https://lifesaver-paulshantanu.rhcloud.com/signin", requestMethod: "POST", postData: postData).getDataFromAPI({(response:APIResponseObject)->Void in
+            if response.responseCode == 200 {
+                self.saveLoginToken(response.responseData)
+            }
+            else if response.responseCode == 401 {
+                self.showAlert("Please enter a valid email and password")
+            }
+            else{
+                self.showAlert("An unknown error occurred while trying to log in: \(response.responseCode)")
+            }
             
-            })
         
-        
-        
+        })
         /*request.HTTPMethod = "POST"
         request.HTTPBody = postData
         request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")

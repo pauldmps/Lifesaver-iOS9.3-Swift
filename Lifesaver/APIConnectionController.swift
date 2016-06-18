@@ -10,16 +10,13 @@ import UIKit
 
 class APIResponseObject{
     var responseCode:Int
-    var response:NSData
+    var responseData:NSData
     
-    init(responseCode:Int,response:NSData){
+    init(responseCode:Int,responseData:NSData){
         self.responseCode = responseCode
-        self.response = response
+        self.responseData = responseData
     }
 }
-
-
-
 
 class APIConnectionController {
 
@@ -30,8 +27,6 @@ class APIConnectionController {
     private var postData:NSDictionary?
     private var headerData:NSDictionary?
     
-  
-
     convenience init(url:String,requestMethod:String) {
         self.init(url: url,requestMethod: requestMethod,postData: nil,headerData: nil)
     }
@@ -56,16 +51,19 @@ class APIConnectionController {
         var postParams:NSData?
         if(request.HTTPMethod == "POST"){
             if postData != nil{
-                do{
-                postParams! = try NSJSONSerialization.dataWithJSONObject(self.postData!, options: NSJSONWritingOptions.PrettyPrinted)
+                var temp:NSString = ""
+                for(key,value) in postData!{
+                    temp = temp.stringByAppendingString("\(key)=\(value)&")
                 }
-                catch let error as NSError{
-                    NSLog("\(error)")
-                }
-            
+            temp = temp.substringToIndex(temp.length-1)
+            temp = temp.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            postParams = temp.dataUsingEncoding(NSUTF8StringEncoding)
             let postLength = String(postParams?.length)
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
+            request.HTTPBody = postParams
+                
+            NSLog(String(data: postParams!, encoding: NSUTF8StringEncoding)!)
             }
             else{
                 NSLog("Error: No data to POST")
@@ -95,9 +93,10 @@ class APIConnectionController {
                     NSLog((error?.localizedDescription)!)
                 }
                 else if let httpResponse = response as? NSHTTPURLResponse{
-                    completion(APIResponseObject(responseCode: httpResponse.statusCode,response: data!))
+                    completion(APIResponseObject(responseCode: httpResponse.statusCode,responseData: data!))
                 }
             }
         }
+        apiAccessTask?.resume()
     }
 }
