@@ -68,15 +68,21 @@ class LoginViewController: UIViewController{
         alertview.show() */
     }
     
+    
     func performLoginWithEmail(email: NSString, password: NSString){
-        
-        let post = "email=\(email)&password=\(password)"
+        //let post = "email=\(email)&password=\(password)"
         let url = NSURL(string: "https://lifesaver-paulshantanu.rhcloud.com/signin")!
-        let postData = post.dataUsingEncoding(NSASCIIStringEncoding)!
-        let postLength = String(postData.length)
-        let request = NSMutableURLRequest(URL:url)
+        //let postData = post.dataUsingEncoding(NSASCIIStringEncoding)!
+        //let postLength = String(postData.length)
+        //let request = NSMutableURLRequest(URL:url)
         
-        request.HTTPMethod = "POST"
+        APIConnectionController(url: "https://lifesaver-paulshantanu.rhcloud.com/signin", requestMethod: "POST", delegate: OnCompleteListener(){
+            
+            })
+        
+        
+        
+        /*request.HTTPMethod = "POST"
         request.HTTPBody = postData
         request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -92,7 +98,6 @@ class LoginViewController: UIViewController{
         }
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
         
         loginTask = defaultSession.dataTaskWithRequest(request) {
             (data, response, error) in dispatch_async(dispatch_get_main_queue()){
@@ -116,6 +121,7 @@ class LoginViewController: UIViewController{
             }
         }
         loginTask?.resume()
+        */
     }
     
     

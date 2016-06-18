@@ -85,7 +85,6 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         bloodType = pickerData[row]
-        //bloodType = NSAttributedString(string: <#T##String#>, attributes: <#T##[String : AnyObject]?#>)
     }
 
     func keyboardWillShow(){

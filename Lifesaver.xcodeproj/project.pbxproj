@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C1133ED1D0DEBBD000F4D7F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1133EC1D0DEBBD000F4D7F /* RegisterViewController.swift */; };
+		7C12D4B11D147AAD00CF709A /* APIConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C12D4B01D147AAD00CF709A /* APIConnectionController.swift */; };
 		7C4E362B1D110B8200DE6541 /* UIBloodTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E362A1D110B8200DE6541 /* UIBloodTypePicker.swift */; };
 		7C531A711D10850800FCC8BA /* UIBloodTypePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C531A701D10850800FCC8BA /* UIBloodTypePicker.xib */; };
 		7C861D731D0C4C5C0059F32B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C861D721D0C4C5C0059F32B /* LoginViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		7C1133EC1D0DEBBD000F4D7F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7C12D4B01D147AAD00CF709A /* APIConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConnectionController.swift; sourceTree = "<group>"; };
 		7C4E362A1D110B8200DE6541 /* UIBloodTypePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBloodTypePicker.swift; sourceTree = "<group>"; };
 		7C531A701D10850800FCC8BA /* UIBloodTypePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIBloodTypePicker.xib; sourceTree = "<group>"; };
 		7C861D721D0C4C5C0059F32B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				7C531A701D10850800FCC8BA /* UIBloodTypePicker.xib */,
 				7C4E362A1D110B8200DE6541 /* UIBloodTypePicker.swift */,
 				7C8D87561D0C06B8009ED488 /* Main.storyboard */,
+				7C12D4B01D147AAD00CF709A /* APIConnectionController.swift */,
 			);
 			path = Lifesaver;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				7C861D731D0C4C5C0059F32B /* LoginViewController.swift in Sources */,
 				7C4E362B1D110B8200DE6541 /* UIBloodTypePicker.swift in Sources */,
 				7C8D87551D0C06B8009ED488 /* MainViewController.swift in Sources */,
+				7C12D4B11D147AAD00CF709A /* APIConnectionController.swift in Sources */,
 				7C8D87531D0C06B8009ED488 /* AppDelegate.swift in Sources */,
 				7C1133ED1D0DEBBD000F4D7F /* RegisterViewController.swift in Sources */,
 			);
