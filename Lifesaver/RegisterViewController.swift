@@ -68,7 +68,8 @@ class RegisterViewController : UIViewController, UIPickerViewDataSource, UIPicke
         }
     
     @IBAction func onRegisterClicked(sender: UIButton) {
-
+        
+        
     
     }
     

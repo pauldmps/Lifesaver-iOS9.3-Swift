@@ -25,7 +25,7 @@ class LoginViewController: UIViewController{
         let prefs = NSUserDefaults.standardUserDefaults()
         let prefsEmail = prefs.stringForKey("email")
         let prefsToken = prefs.stringForKey("token")
-        if(prefsEmail != nil && prefsToken != nil){   //TODO
+        if(prefsEmail != nil && prefsToken != nil){
             self.performSegueWithIdentifier("MainScreenSegue", sender: self)
         }
         
@@ -60,29 +60,19 @@ class LoginViewController: UIViewController{
         alertController.addAction(okAction)
         self.presentViewController(alertController, animated: true, completion: nil)
         
-        /*let alertview = UIAlertView()
-        alertview`.title = "Sign in Failed!"
-        alertview.message = message as String
-        alertview.delegate = self
-        alertview.addButtonWithTitle("OK")
-        alertview.show() */
+   
     }
     
     
     func performLoginWithEmail(email: NSString, password: NSString){
-        //let post = "email=\(email)&password=\(password)"
-        //let url = NSURL(string: "https://lifesaver-paulshantanu.rhcloud.com/signin")!
-        //let postData = post.dataUsingEncoding(NSASCIIStringEncoding)!
-        //let postLength = String(postData.length)
-        //let request = NSMutableURLRequest(URL:url)
-        
+        let url = "https://lifesaver-paulshantanu.rhcloud.com/signin"
         let postData = NSMutableDictionary()
         
         postData.setValue(email, forKey: "email")
         postData.setValue(password, forKey: "password")
         
         
-        APIConnectionController(url: "https://lifesaver-paulshantanu.rhcloud.com/signin", requestMethod: "POST", postData: postData).getDataFromAPI({(response:APIResponseObject)->Void in
+        APIConnectionController(url: url, requestMethod: "POST", postData: postData).getDataFromAPI({(response:APIResponseObject)->Void in
             if response.responseCode == 200 {
                 self.saveLoginToken(response.responseData)
             }
@@ -95,46 +85,6 @@ class LoginViewController: UIViewController{
             
         
         })
-        /*request.HTTPMethod = "POST"
-        request.HTTPBody = postData
-        request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        
-        let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        
-        var loginTask: NSURLSessionDataTask?
-        
-        if loginTask != nil{
-            loginTask?.cancel()
-        }
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
-        loginTask = defaultSession.dataTaskWithRequest(request) {
-            (data, response, error) in dispatch_async(dispatch_get_main_queue()){
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            
-            
-            if error != nil{
-                self.showAlert("An unknown error occurred while trying to log in")
-            }
-            else if let httpResponse = response as? NSHTTPURLResponse {
-                if httpResponse.statusCode == 200 {
-                    self.saveLoginToken(data)
-                }
-                else if httpResponse.statusCode == 401 {
-                    self.showAlert("Please enter a valid email and password")
-                }
-                else{
-                    self.showAlert("An unknown error occurred while trying to log in: \(httpResponse.statusCode)")
-                }
-            }
-            }
-        }
-        loginTask?.resume()
-        */
     }
     
     
