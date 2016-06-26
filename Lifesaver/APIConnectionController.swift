@@ -24,37 +24,48 @@ class APIConnectionController {
     private var url: NSURL
     private var responseCode: Int = 200
     private var response: String?
-    private var postData:NSDictionary?
-    private var headerData:NSDictionary?
+    private var dataToSend:NSDictionary?
     
     convenience init(url:String,requestMethod:String) {
-        self.init(url: url,requestMethod: requestMethod,postData: nil,headerData: nil)
+        self.init(url: url,requestMethod: requestMethod,dataToSend: nil)
     }
     
     convenience init(url:String,requestMethod:String,postData:NSDictionary) {
-        self.init(url: url,requestMethod: requestMethod,postData: postData,headerData: nil)
+        self.init(url: url,requestMethod: requestMethod,dataToSend: postData)
     }
     
-    init(url:String,requestMethod:String,postData:NSDictionary?,headerData:NSDictionary?){
+    init(url:String,requestMethod:String,dataToSend:NSDictionary?){
         self.requestMethod = requestMethod
-        self.postData = postData
-        self.headerData = headerData
+        self.dataToSend = dataToSend
         self.url = NSURL(string: url)!
     }
     
     func getDataFromAPI(completion:(APIResponseObject) -> Void){
+        
+        if(requestMethod == "GET"){
+            var temp:NSString = ""
+            for(key,value) in dataToSend!{
+                temp = temp.stringByAppendingString("\(key)=\(value)&")
+            }
+            temp = "?" + temp.substringToIndex(temp.length-1)
+            temp = temp.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            url = NSURL(string: (url.absoluteString + (temp as String)))!
+            // NSLog("GET: " + url.absoluteString)
+        }
+
         
         let request = NSMutableURLRequest(URL: url)
         
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.HTTPMethod = requestMethod
         var postParams:NSData?
-        if(request.HTTPMethod == "POST"){
-            if postData != nil{
+        if(requestMethod == "POST"){
+            if dataToSend != nil{
                 var temp:NSString = ""
-                for(key,value) in postData!{
+                for(key,value) in dataToSend!{
                     temp = temp.stringByAppendingString("\(key)=\(value)&")
                 }
+                
             temp = temp.substringToIndex(temp.length-1)
             temp = temp.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
             postParams = temp.dataUsingEncoding(NSUTF8StringEncoding)
@@ -63,15 +74,10 @@ class APIConnectionController {
             request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
             request.HTTPBody = postParams
                 
-            NSLog(String(data: postParams!, encoding: NSUTF8StringEncoding)!)
+            //NSLog(String(data: postParams!, encoding: NSUTF8StringEncoding)!)
             }
             else{
                 NSLog("Error: No data to POST")
-            }
-        }
-        if(headerData != nil){
-            for(key,value)in headerData!{
-                request.setValue("\(value)", forHTTPHeaderField: "\(key)")
             }
         }
         

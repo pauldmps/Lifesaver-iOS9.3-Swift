@@ -26,7 +26,7 @@ class LoginViewController: UIViewController{
         let prefsEmail = prefs.stringForKey("email")
         let prefsToken = prefs.stringForKey("token")
         if(prefsEmail != nil && prefsToken != nil){
-            self.performSegueWithIdentifier("MainScreenSegue", sender: self)
+            self.performSegueWithIdentifier("LoginToMainScreenSegue", sender: self)
         }
         
     }
@@ -66,13 +66,13 @@ class LoginViewController: UIViewController{
     
     func performLoginWithEmail(email: NSString, password: NSString){
         let url = "https://lifesaver-paulshantanu.rhcloud.com/signin"
-        let postData = NSMutableDictionary()
+        let dataToSend = NSMutableDictionary()
         
-        postData.setValue(email, forKey: "email")
-        postData.setValue(password, forKey: "password")
+        dataToSend.setValue(email, forKey: "email")
+        dataToSend.setValue(password, forKey: "password")
         
         
-        APIConnectionController(url: url, requestMethod: "POST", postData: postData).getDataFromAPI({(response:APIResponseObject)->Void in
+        APIConnectionController(url: url, requestMethod: "POST", dataToSend: dataToSend).getDataFromAPI({(response:APIResponseObject)->Void in
             if response.responseCode == 200 {
                 self.saveLoginToken(response.responseData)
             }
@@ -111,11 +111,13 @@ class LoginViewController: UIViewController{
         }
         
         if(defaults.synchronize()){
-            self.performSegueWithIdentifier("MainScreenSegue", sender: self)
+            self.performSegueWithIdentifier("LoginToMainScreenSegue", sender: self)
 
         }
     }
    
     @IBAction func onSignupClicked(sender: UIButton) {
+        
+        self.performSegueWithIdentifier("LoginToRegisterScreenSegue", sender: self)
     }
 }

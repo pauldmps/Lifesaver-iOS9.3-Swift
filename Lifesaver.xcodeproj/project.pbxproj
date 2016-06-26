@@ -11,6 +11,7 @@
 		7C12D4B11D147AAD00CF709A /* APIConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C12D4B01D147AAD00CF709A /* APIConnectionController.swift */; };
 		7C4E362B1D110B8200DE6541 /* UIBloodTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E362A1D110B8200DE6541 /* UIBloodTypePicker.swift */; };
 		7C531A711D10850800FCC8BA /* UIBloodTypePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C531A701D10850800FCC8BA /* UIBloodTypePicker.xib */; };
+		7C664FD91D1DC8600012B34A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C664FD81D1DC8600012B34A /* MapKit.framework */; };
 		7C861D731D0C4C5C0059F32B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C861D721D0C4C5C0059F32B /* LoginViewController.swift */; };
 		7C8D87531D0C06B8009ED488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D87521D0C06B8009ED488 /* AppDelegate.swift */; };
 		7C8D87551D0C06B8009ED488 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D87541D0C06B8009ED488 /* MainViewController.swift */; };
@@ -19,6 +20,7 @@
 		7C8D875D1D0C06B8009ED488 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8D875B1D0C06B8009ED488 /* LaunchScreen.storyboard */; };
 		7C8D87681D0C06B8009ED488 /* LifesaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D87671D0C06B8009ED488 /* LifesaverTests.swift */; };
 		7C8D87731D0C06B8009ED488 /* LifesaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D87721D0C06B8009ED488 /* LifesaverUITests.swift */; };
+		7CF341091D1EF7AC0067E1BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF341081D1EF7AC0067E1BB /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,7 @@
 		7C12D4B01D147AAD00CF709A /* APIConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConnectionController.swift; sourceTree = "<group>"; };
 		7C4E362A1D110B8200DE6541 /* UIBloodTypePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBloodTypePicker.swift; sourceTree = "<group>"; };
 		7C531A701D10850800FCC8BA /* UIBloodTypePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIBloodTypePicker.xib; sourceTree = "<group>"; };
+		7C664FD81D1DC8600012B34A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7C861D721D0C4C5C0059F32B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7C8D874F1D0C06B8009ED488 /* Lifesaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lifesaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8D87521D0C06B8009ED488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		7C8D876E1D0C06B8009ED488 /* LifesaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifesaverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8D87721D0C06B8009ED488 /* LifesaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifesaverUITests.swift; sourceTree = "<group>"; };
 		7C8D87741D0C06B8009ED488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CF341081D1EF7AC0067E1BB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C664FD91D1DC8600012B34A /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +120,7 @@
 				7C4E362A1D110B8200DE6541 /* UIBloodTypePicker.swift */,
 				7C8D87561D0C06B8009ED488 /* Main.storyboard */,
 				7C12D4B01D147AAD00CF709A /* APIConnectionController.swift */,
+				7CF341081D1EF7AC0067E1BB /* User.swift */,
 			);
 			path = Lifesaver;
 			sourceTree = "<group>";
@@ -140,6 +146,7 @@
 		7C8D87801D0C06C2009ED488 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				7C664FD81D1DC8600012B34A /* MapKit.framework */,
 				7C8D875E1D0C06B8009ED488 /* Info.plist */,
 				7C8D875B1D0C06B8009ED488 /* LaunchScreen.storyboard */,
 				7C8D87521D0C06B8009ED488 /* AppDelegate.swift */,
@@ -217,6 +224,11 @@
 					7C8D874E1D0C06B8009ED488 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 4G2F3VM699;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7C8D87621D0C06B8009ED488 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -287,6 +299,7 @@
 				7C12D4B11D147AAD00CF709A /* APIConnectionController.swift in Sources */,
 				7C8D87531D0C06B8009ED488 /* AppDelegate.swift in Sources */,
 				7C1133ED1D0DEBBD000F4D7F /* RegisterViewController.swift in Sources */,
+				7CF341091D1EF7AC0067E1BB /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
